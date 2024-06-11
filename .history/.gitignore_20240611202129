@@ -1,0 +1,16 @@
+# Ignore macOS system files
+.DS_Store
+
+# Ignore Docker files
+db_data/
+prestashop/
+
+# Ignore Node modules
+node_modules/
+
+# Ignore vendor folder for PHP dependencies
+vendor/
+
+# Ignore environment files
+.env
+.env.local
