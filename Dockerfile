@@ -22,9 +22,12 @@ RUN set -eux; \
     mkdir -p /usr/local/ioncube && \
     cp /tmp/ioncube/ioncube_loader_* /usr/local/ioncube && \
     echo 'zend_extension = /usr/local/ioncube/ioncube_loader_lin_7.4.so' > /usr/local/etc/php/conf.d/00-ioncube.ini && \
-    rm -rf /tmp/ioncube && rm /tmp/ioncube_loaders_lin_arm64.tar.gz; \
-    docker-php-ext-configure gd --with-freetype --with-jpeg; \
-    docker-php-ext-install -j$(nproc) gd mysqli pdo_mysql zip
+    rm -rf /tmp/ioncube && rm /tmp/ioncube_loaders_lin_arm64.tar.gz;
+# docker-php-ext-configure gd --with-freetype --with-jpeg; \
+# docker-php-ext-install -j$(nproc) gd mysqli pdo_mysql zip
+RUN apt-get update \
+    && apt-get install -y \
+    && docker-php-ext-install mysqli pdo_mysql
 
 # Apache configuration
 RUN echo 'ServerName localhost' >> /etc/apache2/apache2.conf
