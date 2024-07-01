@@ -36,10 +36,11 @@ class MyModule extends Module
             Shop::setContext(Shop::CONTEXT_ALL);
         }
 
-        return (
-            parent::install() 
-            && Configuration::updateValue('MYMODULE_NAME', 'my module')
-        ); 
+        return parent::install() &&
+            $this->registerHook('displayHome') &&
+            $this->registerHook('actionFrontControllerSetMedia') &&
+            // $this->registerHook('displayRightColumn') &&
+            Configuration::updateValue('MYMODULE_NAME', 'my module');
     }
 
     public function uninstall()
@@ -47,6 +48,54 @@ class MyModule extends Module
         return (
             parent::uninstall()
             && Configuration::deleteByName('MYMODULE_NAME')
+        );
+    }
+
+
+    public function hookDisplayHome($params)      // my hook
+    {
+        $this->context->smarty->assign([
+            'my_module_name' => Configuration::get('MYMODULE_NAME'),
+            'my_module_link' => $this->context->link->getModuleLink('mymodule', 'display')
+        ]);
+
+        return $this->display(__FILE__, 'mymodule.tpl');
+    }
+
+
+    // public function hookDisplayLeftColumn($params)
+    // {
+    //     $this->context->smarty->assign([
+    //         'my_module_name' => Configuration::get('MYMODULE_NAME'),
+    //         'my_module_link' => $this->context->link->getModuleLink('mymodule', 'display')
+    //     ]);
+
+    //     return $this->display(__FILE__, 'mymodule.tpl');
+    // }
+
+    // public function hookDisplayRightColumn($params)
+    // {
+    //     return $this->hookDisplayLeftColumn($params);
+    // }
+
+    public function hookActionFrontControllerSetMedia()
+    {
+        $this->context->controller->registerStylesheet(
+            'mymodule-style',
+            'modules/' . $this->name . '/views/css/mymodule.css',
+            [
+                'media' => 'all',
+                'priority' => 1000,
+            ]
+        );
+
+        $this->context->controller->registerJavascript(
+            'mymodule-javascript',
+            'modules/' . $this->name . '/views/js/mymodule.js',
+            [
+                'position' => 'bottom',
+                'priority' => 1000,
+            ]
         );
     }
 
