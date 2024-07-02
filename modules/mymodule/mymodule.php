@@ -3,6 +3,8 @@ if (!defined('_PS_VERSION_')) {
     exit;
 }
 
+require_once (__DIR__ . '/weather.php');
+
 class MyModule extends Module
 {
     public function __construct()
@@ -52,14 +54,36 @@ class MyModule extends Module
     }
 
 
-    public function hookDisplayHome($params)      // my hook
-    {
-        $this->context->smarty->assign([
-            'my_module_name' => Configuration::get('MYMODULE_NAME'),
-            'my_module_link' => $this->context->link->getModuleLink('mymodule', 'display')
-        ]);
+    // public function hookDisplayHome($params)      // my hook
+    // {
+    //     $this->context->smarty->assign([
+    //         'my_module_name' => Configuration::get('MYMODULE_NAME'),
+    //         'my_module_link' => $this->context->link->getModuleLink('mymodule', 'display')
+    //     ]);
 
-        return $this->display(__FILE__, 'mymodule.tpl');
+    //     return $this->display(__FILE__, 'mymodule.tpl');
+    // }
+
+    public function hookDisplayHome($params)        // weather API defined OLSZTYN
+    {
+        $apiKey = '79f4d0dd8d46dedb331b5a20527be020';
+        $city = 'Olsztyn';
+
+        $weather = new Weather($apiKey, $city);
+        $weatherData = $weather->getWeather();
+
+        if ($weatherData) 
+        {
+            $temperature = $weatherData['main']['temp'];
+            $weatherDescription = $weatherData['weather'][0]['description'];
+
+            $this->context->smarty->assign(array(
+                    'temperature' => $temperature,
+                    'weatherDescrption' => $weatherDescription,
+            ));
+        }
+
+        return $this->display(__FILE__, 'views/templates/hooks/display.tpl');
     }
 
 
