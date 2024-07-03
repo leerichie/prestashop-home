@@ -1,0 +1,31 @@
+.mymodule_block_home {
+  margin-top: 50px;
+  font-size: 150%;
+  font-style: normal;
+  margin-bottom: 50px;
+}
+
+.block_content img {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+.weather-icon {
+  margin-top: 10px; /* Adjust as needed */
+  text-align: center; /* Center align the image */
+}
+
+.weather-icon img {
+  max-width: 200px; /* Set max width for the weather icon */
+}
+
+.klikmi {
+  margin-top: 30px;
+  font-size: large;
+}
+
+.klikmi:hover {
+  color: green;
+  font-size: larger;
+}

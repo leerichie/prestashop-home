@@ -1,0 +1,41 @@
+/* .mymodule_block_home {
+  margin-top: 50px;
+  font-size: 150%;
+  font-style: normal;
+  margin-bottom: 50px;
+}
+
+.block_content img {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+.klikmi {
+  margin-top: 30px;
+  font-size: large;
+}
+
+.klikmi:hover {
+  color: green;
+  font-size: larger;
+} */
+
+.weather-info {
+  display: flex; /* Use flexbox to align items */
+  align-items: center; /* Align items vertically */
+}
+
+.weather-text {
+  flex: 1; /* Take remaining space */
+}
+
+.weather-icon {
+  margin-left: 20px; /* Adjust spacing between text and icon */
+  /* You can add more styles as needed */
+}
+
+.weather-icon img {
+  width: 50px; /* Adjust icon size as needed */
+  height: auto; /* Maintain aspect ratio */
+}

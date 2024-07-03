@@ -1,0 +1,22 @@
+#mymodule_block_home {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+}
+
+.block_content {
+  margin-top: 10px;
+}
+
+.klikmi {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.block_content img {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}

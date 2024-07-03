@@ -1,0 +1,43 @@
+.mymodule_block_home {
+  margin-top: 50px;
+  font-size: 150%;
+  font-style: normal;
+  margin-bottom: 50px;
+}
+
+.block_content img {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.klikmi a {
+  margin-top: 30px;
+  font-size: large;
+  padding-right: 30px;
+}
+
+.klikmi a:hover {
+  animation: shake 0.5s;
+  /* transition: 2s; */
+  color: green;
+  outline: 4xp solid transparent;
+}

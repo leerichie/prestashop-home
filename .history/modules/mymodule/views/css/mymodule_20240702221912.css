@@ -1,0 +1,10 @@
+.mymodule_block_home {
+  margin-top: 50px;
+  font-size: 150%;
+  font-style: italic;
+  margin-bottom: 50px;
+}
+
+.click:hover {
+  font-size: larger;
+}

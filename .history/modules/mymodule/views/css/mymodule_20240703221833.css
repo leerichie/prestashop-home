@@ -1,0 +1,47 @@
+.mymodule_block_home {
+  margin-top: 50px;
+  font-size: 150%;
+  font-style: normal;
+  margin-bottom: 50px;
+}
+
+.block_content img {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  50% {
+    transform: rotateZ(10deg);
+  }
+  100% {
+    transform: rotateZ(-10deg);
+    /* }
+  75% {
+    transform: rotateZ(5deg);
+  }
+  100% {
+    transform: rotateZ(0deg); */
+  }
+}
+
+.klikmi a {
+  margin-top: 30px;
+  font-size: large;
+  padding-right: 30px;
+  display: inline-block;
+  transition: transform 0.2s ease-in-out;
+  transform-origin: center;
+}
+
+.klikmi a:hover {
+  animation-name: shake;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  color: green;
+}

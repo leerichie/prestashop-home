@@ -1,0 +1,11 @@
+div#mymodule_block_home p {
+  margin-top: 50px;
+  font-size: 150%;
+  font-style: italic;
+  margin-bottom: 50px;
+}
+
+.click:hover {
+  color: firebrick;
+  font-weight: bolder;
+}
